@@ -34,7 +34,6 @@ yarn dev
 - `yarn build` - builds the production-ready unpacked extension
 - `yarn test -u` - runs Jest + updates test snapshots
 - `yarn lint` - runs EsLint
-- `yarn prettify` - runs Prettier
 
 <details>
   <summary>Loading the extension in Google Chrome</summary>
@@ -85,14 +84,12 @@ In [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/), open up the [a
 
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
 - [Jest](https://jestjs.io)
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
-- [Bootstrap](https://getbootstrap.com)
-- [SCSS](https://sass-lang.com/)
+- [Chakra-ui](https://chakra-ui.com/)
 - [webextension-polyfill-ts](https://github.com/Lusito/webextension-polyfill-ts)
 
 **Misc. References**
