@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from "react";
-import "./styles.scss";
-
-// // // //
+import { Box, Center, Heading } from '@chakra-ui/layout'
+import React, { FunctionComponent } from 'react'
 
 export const Hello: FunctionComponent = () => {
-    return (
-        <div className="row">
-            <div className="col-lg-12 text-center">
-                <p className="lead mb-0">Example Extension</p>
-            </div>
-        </div>
-    );
-};
+  return (
+    <Box>
+      <Center>
+        <Heading size="m" mt={3}>
+          Example Extension
+        </Heading>
+      </Center>
+    </Box>
+  )
+}

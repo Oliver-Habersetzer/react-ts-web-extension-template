@@ -1,60 +1,61 @@
-import React, { FunctionComponent } from "react";
-import "./styles.scss";
-import { browser, Tabs } from "webextension-polyfill-ts";
+import React, { FunctionComponent } from 'react'
+import './styles.scss'
+import { browser, Tabs } from 'webextension-polyfill-ts'
+import { Button } from '@chakra-ui/button'
+import { Center, Flex } from '@chakra-ui/react'
 
 // // // //
 
 // Scripts to execute in current tab
-const scrollToTopScript = `window.scroll(0,0)`;
-const scrollToBottomScript = `window.scroll(0,9999999)`;
+const scrollToTopScript = `window.scroll(0,0)`
+const scrollToBottomScript = `window.scroll(0,9999999)`
 
 /**
  * Executes a string of Javascript on the current tab
  * @param code The string of code to execute on the current tab
  */
-function executeScript(code: string): void {
-    // Query for the active tab in the current window
-    browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then((tabs: Tabs.Tab[]) => {
-            // Pulls current tab from browser.tabs.query response
-            const currentTab: Tabs.Tab | undefined = tabs[0];
+const executeScript = async (code: string) => {
+  // Query for the active tab in the current window
+  const tabs: Tabs.Tab[] = await browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  })
 
-            // Short circuits function execution is current tab isn't found
-            if (!currentTab) {
-                return;
-            }
+  // Pulls current tab from browser.tabs.query response
+  const currentTab: Tabs.Tab | undefined = tabs[0]
 
-            // Executes the script in the current tab
-            browser.tabs
-                .executeScript(currentTab.id, {
-                    code,
-                })
-                .then(() => {
-                    console.log("Done Scrolling");
-                });
-        });
+  // Short circuits function execution is current tab isn't found
+  if (!currentTab) {
+    return
+  }
+
+  // Executes the script in the current tab
+  return browser.tabs.executeScript(currentTab.id, {
+    code,
+  })
 }
 
 // // // //
 
 export const Scroller: FunctionComponent = () => {
-    return (
-        <div className="row">
-            <div className="col-lg-12">
-                <button
-                    className="btn btn-block btn-outline-dark"
-                    onClick={(): void => executeScript(scrollToTopScript)}
-                >
-                    Scroll To Top
-                </button>
-                <button
-                    className="btn btn-block btn-outline-dark"
-                    onClick={(): void => executeScript(scrollToBottomScript)}
-                >
-                    Scroll To Bottom
-                </button>
-            </div>
-        </div>
-    );
-};
+  return (
+    <div className="row">
+      <Flex flexDir="column">
+        <Button
+          m={3}
+          className="btn btn-block btn-outline-dark"
+          onClick={() => executeScript(scrollToTopScript)}
+        >
+          Scroll To Top
+        </Button>
+        <Button
+          m={3}
+          className="btn btn-block btn-outline-dark"
+          onClick={() => executeScript(scrollToBottomScript)}
+        >
+          Scroll To Bottom
+        </Button>
+      </Flex>
+    </div>
+  )
+}
