@@ -1,3 +1,10 @@
+# `react-ts-web-extension-template`
+
+> This is a fork of [@aeksco](https://github.com/aeksco)'s [aeksco/react-typescript-web-extension-starter](https://github.com/aeksco/react-typescript-web-extension-starter.git) brilliant repo starter, along with [some modifications](https://github.com/capaj/react-typescript-web-extension-starter.git) by [@capaj](https://github.com/ca) that I merged into the original repo.
+> Currently everything is in active development, and I just started working on it. So until I have a stable version, I will use the `dev` branch.
+
+----------------------------------------------------------------------
+
 [![GitHub stars](https://img.shields.io/github/stars/aeksco/react-typescript-web-extension-starter.svg?style=social&label=Stars&style=plastic)]()
 [![GitHub watchers](https://img.shields.io/github/watchers/aeksco/react-typescript-web-extension-starter.svg?style=social&label=Watch&style=plastic)]()
 [![GitHub forks](https://img.shields.io/github/forks/aeksco/react-typescript-web-extension-starter.svg?style=social&label=Fork&style=plastic)]()
