@@ -1,6 +1,5 @@
 dist/js/*
-.vscode
-storybook-static/*
+.vscode/
 
 /node_modules
 npm-debug.log
